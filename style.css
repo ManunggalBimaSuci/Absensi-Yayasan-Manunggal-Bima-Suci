@@ -1,0 +1,128 @@
+/*
+ * File: style.css
+ * Dibuat untuk Absensi Yayasan Manunggal Bima Suci
+ * Fokus: Mobile-First, Simpel, dan Mudah Digunakan
+ */
+
+/* ==================================== */
+/* 1. Reset dan Font Dasar */
+/* ==================================== */
+body {
+    /* Background yang soft, nyaman di mata */
+    background-color: #f0f2f5; 
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    padding: 10px;
+}
+
+/* Mengatur container agar tidak terlalu lebar di desktop */
+.container {
+    padding: 0;
+}
+
+/* ==================================== */
+/* 2. Style Login Card */
+/* ==================================== */
+#login-container {
+    margin-top: 15vh !important; /* Posisikan di tengah layar lebih tinggi */
+    border-radius: 1rem;
+    border-top: 5px solid #007bff; /* Garis warna primer Yayasan */
+}
+
+/* ==================================== */
+/* 3. Style Header & Card Dashboard */
+/* ==================================== */
+header {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    padding: 20px !important;
+}
+
+header img {
+    /* Memberi sedikit efek bulatan pada logo */
+    border-radius: 50%; 
+    border: 3px solid #007bff;
+    padding: 2px;
+}
+
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px); /* Efek saat disentuh/hover */
+}
+
+.card-title {
+    font-weight: 600;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Warna tombol disesuaikan dengan Bootstrap, tapi diberi sedikit sentuhan */
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    font-weight: bold;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s;
+}
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    font-weight: bold;
+    border-radius: 0.75rem;
+    color: #343a40; /* Teks gelap untuk tombol kuning */
+}
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    font-weight: bold;
+    border-radius: 0.75rem;
+}
+
+/* Efek saat tombol Absen Masuk/Keluar di klik/sentuh */
+.absen-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* ==================================== */
+/* 4. Style Status Absensi */
+/* ==================================== */
+#status-absensi-reguler, #status-absensi-lembur {
+    /* Area status diberi background lebih terang agar menonjol */
+    background-color: #fefefe; 
+    border-radius: 0.5rem;
+    padding: 10px;
+    margin-top: 15px !important;
+    border: 1px dashed #ced4da;
+}
+
+#status-absensi-reguler h5, #status-absensi-lembur h5 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* ==================================== */
+/* 5. Utility Classes */
+/* ==================================== */
+.text-primary {
+    color: #007bff !important; /* Biru Primer */
+}
+
+.text-success {
+    color: #28a745 !important;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pengurus - Manunggal Bima Suci</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;padding:20px;">
+    <div class="container" style="max-width:1000px;">
+
+        <div class="pengurus-header d-flex align-items-center justify-content-between bg-white p-3 rounded-3 shadow mb-3">
+            <div class="d-flex align-items-center">
+                <img src="assets/Logo.jpg" style="width:60px;height:60px;border-radius:50%;border:3px solid #667eea;" class="me-3">
+                <div>
+                    <h3 class="mb-0" style="color:#667eea;font-weight:700;">DASHBOARD PENGURUS</h3>
+                    <small class="text-muted">Yayasan Manunggal Bima Suci</small>
+                </div>
+            </div>
+            <button class="btn btn-outline-danger" id="btn-logout">Logout 🚪</button>
+        </div>
+
+        <div class="pengurus-info text-white p-3 rounded-3 shadow mb-4" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+            <p class="mb-1">Selamat Datang! 👋</p>
+            <h4 id="pengurus-nama" class="mb-1 text-uppercase">LOADING...</h4>
+            <p>📋 NIK: <span id="pengurus-nik">-</span> | 💼 Jabatan: <span id="pengurus-jabatan">PENGURUS</span></p>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-4"><div class="stat-card bg-white rounded-3 p-3 shadow text-center"><div class="stat-label">👥 Total Pekerja</div><div id="stat-total" class="stat-number text-primary">0</div></div></div>
+            <div class="col-md-4"><div class="stat-card bg-white rounded-3 p-3 shadow text-center"><div class="stat-label">✅ Sudah Absen</div><div id="stat-hadir" class="stat-number text-success">0</div></div></div>
+            <div class="col-md-4"><div class="stat-card bg-white rounded-3 p-3 shadow text-center"><div class="stat-label">❌ Belum Absen</div><div id="stat-belum" class="stat-number text-danger">0</div></div></div>
+        </div>
+
+        <div class="card bg-white rounded-4 p-4 shadow mb-4">
+            <h5 class="border-bottom pb-2 fw-bold">📝 Absensi Saya</h5>
+            <input type="file" id="camera-input" accept="image/*" capture="user" style="display:none;">
+            <div style="width:100%;border:2px solid #28a745;border-radius:10px;padding:20px;">
+
+                <h6 class="text-success mb-3">Absensi Reguler Harian</h6>
+
+                <div class="text-center mb-3">
+                    <h5 id="jam-realtime" style="font-weight:700;color:#333;">00:00:00</h5>
+                </div>
+
+                <button id="btn-absen-masuk" class="btn btn-success w-100 mb-2">Absen Masuk 🤳</button>
+                <button id="btn-absen-keluar" class="btn btn-warning w-100" disabled>Absen Keluar 🚪</button>
+                <div id="status-absensi-reguler" class="mt-3 p-2 border-top"></div>
+            </div>
+        </div>
+
+        <div class="card bg-white rounded-4 p-4 shadow mb-4">
+            <h5 class="fw-bold mb-3">📊 Absensi Hari Ini - <span id="today-date"></span></h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="text-primary">👔 Pengurus — Sudah Absen (<span id="count-hadir-pengurus">0</span>)</h6>
+                    <div id="list-hadir-pengurus" style="max-height:250px;overflow-y:auto;"></div>
+
+                    <h6 class="text-danger mt-3">❌ Belum Absen Pengurus (<span id="count-belum-pengurus">0</span>)</h6>
+                    <div id="list-belum-pengurus" style="max-height:250px;overflow-y:auto;"></div>
+                </div>
+
+                <div class="col-md-6">
+                    <h6 class="text-success">🛠 Pekerja — Sudah Absen (<span id="count-hadir-pekerja">0</span>)</h6>
+                    <div id="list-hadir-pekerja" style="max-height:250px;overflow-y:auto;"></div>
+
+                    <h6 class="text-danger mt-3">❌ Belum Absen Pekerja (<span id="count-belum-pekerja">0</span>)</h6>
+                    <div id="list-belum-pekerja" style="max-height:250px;overflow-y:auto;"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+
+    <script src="script.js"></script>
+    <script src="pengurus-script.js"></script>
+</body>
+</html>
